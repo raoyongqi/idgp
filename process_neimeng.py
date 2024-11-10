@@ -1,6 +1,6 @@
 import arcpy
 
-input_raster = r'C:\Users\r\Desktop\idgp\idgp_label\processed_sichuan_idgp_2020.tif'
+input_raster = r'C:\Users\r\Desktop\idgp\idgp_label\processed_neimeng_idgp_2020.tif'
 
 # 尝试重新构建属性表
 arcpy.management.BuildRasterAttributeTable(input_raster, "Overwrite")
@@ -48,7 +48,7 @@ except Exception as e:
 import arcpy
 
 # 输入栅格文件路径
-input_raster = r'C:\Users\r\Desktop\idgp\idgp_label\processed_sichuan_idgp_2020.tif'
+input_raster = r'C:\Users\r\Desktop\idgp\idgp_label\processed_neimeng_idgp_2020.tif'
 
 # 获取栅格的属性表
 fields = arcpy.ListFields(input_raster)
@@ -139,7 +139,7 @@ with arcpy.da.UpdateCursor(input_raster, [value_field, new_field]) as cursor:
 
 print(f"Field '{new_field}' updated with top 4 labels and 'Others' for other categories.")
 wgs84 = arcpy.SpatialReference(4326)  # WGS 84 坐标系统 (EPSG: 4326)
-output_raster = r'C:\Users\r\Desktop\idgp\idgp_wsg84\processed_sichuan_idgp_2020_wgs84.tif'  # 输出投影后的栅格路径
+output_raster = r'C:\Users\r\Desktop\idgp\idgp_wsg84\processed_neimeng_idgp_2020_wgs84.tif'  # 输出投影后的栅格路径
 
 # 执行栅格投影
 arcpy.management.ProjectRaster(input_raster, output_raster, wgs84)

@@ -1,0 +1,1 @@
+每次在 VS Code 中运行代码时都报错，并且提示的是类似 tempCodeRunnerFile.py 的文件出错，这可能是 VS Code 的代码运行插件（如 Code Runner 插件）或者配置问题

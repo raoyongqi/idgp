@@ -105,11 +105,14 @@ cursor = arcpy.da.SearchCursor(input_raster, [value_field, count_field])
 value_count = {}
 
 # 填充字典并过滤掉 'Unclassified' 栅格值
+# 青海根本没有'Mixed_Forests','Woody_Savannas','Savannas','Deciduous_Broadleaf_Forests'
 for row in cursor:
     value = row[0]
-    if value not in ("Unclassified",'Water_Bodies'):  # 过滤掉 'Unclassified' 栅格值
+    if value not in ("Unclassified",'Water_Bodies','Mixed_Forests','Woody_Savannas','Savannas','Deciduous_Broadleaf_Forests'):  # 过滤掉 'Unclassified' 栅格值
         value_count[value] = row[1]
 
+
+        
 # 排序并获取前4个值
 sorted_values = sorted(value_count.items(), key=lambda x: x[1], reverse=True)
 top_4_values = [item[0] for item in sorted_values[:4]]

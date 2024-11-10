@@ -107,7 +107,7 @@ value_count = {}
 # 填充字典并过滤掉 'Unclassified' 栅格值
 for row in cursor:
     value = row[0]
-    if value not in ("Unclassified",'Water_Bodies'):  # 过滤掉 'Unclassified' 栅格值
+    if value not in ("Unclassified",'Water_Bodies','Croplands','Woody_Savannas','Mixed_Forests'):  # 过滤掉 'Unclassified' 栅格值
         value_count[value] = row[1]
 
 # 排序并获取前4个值
